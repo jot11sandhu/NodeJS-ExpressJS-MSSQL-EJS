@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <%- include('./partials/nav') %>
+    </div>
+    <div class="container-fluid">
+    <table style="width: 100%">
+    
+        <tr style='text-align:left; background-color:#CCC'>
+            <th style="display:none;">Id</th>
+            <th>Roll Number</th>
+            <th>Name</th>
+            <th>DOB</th>
+            <th>Score</th>
+        </tr>
+        <% if (data.length > 0) { %>
+        <% data.forEach(user => { %>
+            <tr>
+                <td style="display:none;"><% user.id %></td>
+                <td><%= user.rollNumber %></td>
+                <td><%= user.name %></td>
+                <td><%= user.dob %></td>
+                <td><%= user.score %></td>
+                <td>
+                    <div style="float:left">                        						
+                        <form method="post" action="/api/results/delete/<%= user.id %>" style="float:right">
+                            <input type="submit" name="delete" value='Delete' onClick="return confirm('Are you sure you want to delete?')" />
+                            <input type="hidden" name="_method" value="DELETE" href="/teacher"/>
+                        </form>
+                        <form method="post" action="./editresult" style="float:right">                            
+                            <input type="submit" name="edit" value='Edit' />
+                            <input type="number" name="id" id="id" value="<%= user.id %>" hidden/>
+                            <input type="number" name="rollNumber" id="rollNumber" value="<%= user.rollNumber %>" hidden/>
+                            <input type="text" name="name" id="name" value="<%= user.name %>" hidden/>
+                            <input type="date" name="dob" id="dob" value="<%= user.dob %>" hidden/>
+                            <input type="number" name="score" id="score" value="<%= user.score %>" hidden/>
+                        </form>	
+                    </div>
+                </td>
+            </tr>
+        <% }) %>
+        <% } else { %>
+            <tr>
+                <td>
+                    No results to show !!!
+                </td>
+            </tr>    
+        <% } %>
+    </table>
+</div>
+</body>
+</html>

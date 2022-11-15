@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Result Management System</title>
+</head>
+<body>
+    <div>
+        <%- include('./partials/nav') %>
+    </div>
+    <div class="container-fluid d-block p-4 text-black text-center" style="font-size: 36px; font-weight: bold;">
+        <p style="margin-top: 100px;">
+            Login As
+        </p>
+
+        <div class="container-fluid" style="margin-top: 100px;">
+            <div class="row">
+                <div>
+                    <a href="/teacher" class="btn btn-primary col-md-3 col-md-offset-2" role="button" style="height: 100px;text-align: center;font-size: larger;">
+                        Teacher
+                    </a>
+                </div>
+                <div>
+                    <a href="/student" class="btn btn-primary col-md-3 col-md-offset-2" role="button" style="height: 100px;text-align: center;font-size: larger;">
+                        Student
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Search Result</title>
+</head>
+<body>
+    <div>
+        <%- include('./partials/nav') %>
+    </div>
+    <div class="container-fluid">
+    <button type="submit">
+        <a href="/student" class="btn btn-primary">Back</a>
+    </button>
+    </div>
+<div class="container-fluid">
+    <table style="width: 100%">
+    
+        <% if (data.length > 0) { %>
+        <% data.forEach(user => { %>
+            <tr style='text-align:left; background-color:#CCC'>
+                <th style="display:none;">Id</th>
+                <th>Roll Number</th>
+                <th>Name</th>
+                <th>DOB</th>
+                <th>Score</th>
+            </tr>
+            <tr>
+                <td style="display:none;"><% user.id %></td>
+                <td><%= user.rollNumber %></td>
+                <td><%= user.name %></td>
+                <td><%= user.dob %></td>
+                <td><%= user.score %></td>
+            </tr>
+        <% }) %>
+        <% } else { %>
+            <tr>
+                <td>
+                    No results to show !!!
+                </td>
+            </tr>    
+        <% } %>
+    </table>
+</div>
+</body>
+</html>

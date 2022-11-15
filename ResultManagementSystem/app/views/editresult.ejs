@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Edit Result</title>
+</head>
+<body>
+    
+    <div>
+        <%- include('./partials/nav') %>
+    </div>
+    <div class="container-fluid">
+    <form action="/api/results/edit/<%= user.id %>" method="post" name="form1">
+        <table style="width: 50%">
+            <tr style="display:none;">
+                <td>Id</td>
+                <td><input type="number" name="id" id="id" value="<%= user.id %>" hidden/></td>
+            </tr>
+            <tr> 
+                <td>Roll Number</td>
+                <td><input type="number" name="rollNumber" id="rollNumber" value="<%= user.rollNumber %>" /></td>
+            </tr>            
+            <tr> 
+                <td>Name</td>
+                <td><input type="text" name="name" id="name" value="<%= user.name %>" /></td>
+            </tr>
+            <tr> 
+                <td>Date of birth</td>
+                <td><input type="date" name="dob" id="dob" value="<%= user.dob %>" /></td>
+            </tr>
+            <tr> 
+                <td>Score</td>
+                <td><input type="number" name="score" id="score" value="<%= user.score %>" /></td>
+            </tr>
+            <tr> 
+                <td></td>
+                <td><input type="submit" name="Submit" value="Save" /></td>
+            </tr>
+        </table>
+        <input type="hidden" name="_method" value="PUT" />
+    </form>
+</div>
+</body>
+</html>
